@@ -18,7 +18,7 @@ The primary motivation for building this tool was to provide (1) increased knowl
 I'm still incredibly proud of this project and it represents some of my most valued professional strengths: identifying issues with efficiency and knowledge sharing, reverse-engineering systems and figuring out how to use new tools, ...
 </p>
 <p>
-This write-up covers the five main components of Telescope: Project, Turbines, Met, PPT and Terrain. In the following sections, I'll provide a brief write-up of each component, both in terms of functionality and development. No source code is included.
+This write-up covers the five main components of Telescope: Project, Turbines, Mets, PPT and Terrain. In the following sections, I'll provide a brief write-up of each component, both in terms of functionality and development. No source code is included.
 </p>
 
 <h1>Main Page</h1>
@@ -35,7 +35,7 @@ The user can then select regions or countries, and the map will zoom in to the r
 <h1>Project</h1>
 <img src="screenshots/telescope-2.png" height="500px" width="auto">
 <p>
-The Project information page highlights information about the layout of a project. Each project is version controlled by the client software that is used to create the project, updated by the various project developers who work on the project. Each version also includes a number of different layouts that the project developer has created in the client software, to try out different combinations of turbine types, locations, wind farm control features, etc. The user can select through the different project versions and layouts, and the information associated with these specific layouts is then presented on the page.
+The Project information page highlights information about the layout of a project. Each project is version controlled by the client software that is used to create the project, updated by the various project developers who work on the project. Each version also includes a number of different layouts that the project developer has created in the client software, to try out different combinations of turbine types, locations, wind farm control features, etc. The user can select through the different project versions and layouts, and the information associated with these specific layouts is then presented on the page. Additionally, the user can click on the turbine markers to see detailed meta data about the selected wind turbine.
 </p>
 <p>
 This information includes the following:
@@ -55,10 +55,20 @@ When a specific project version and layout has been selected, the user can then 
 <h1>Turbines</h1>
 <img src="screenshots/telescope-3.png" height="500px" width="auto">
 <p>
+The Turbines page is a tabulation of the wind turbines in the selected project version and layout. The table includes all new turbines that will be built in the new project, and any existing turbines that are included in the layout for analysis purposes such as wake studies. Each row is a separate turbine, and includes the wind turbine type, the turbine pad number, latitude/longitude, estimated wind speed average, expected energy output, and other turbine-specific data points.
 </p>
 
-<h1>Met</h1>
+<h1>Mets</h1>
 <img src="screenshots/telescope-4.png" height="500px" width="auto">
+<p>
+The Mets page is intended to focus on the meterological towers that have been used in the measurement campaignment of the project development process. Typically, the measurement campaign consists of measuring environmental data (wind speed, direction, temperature, etc) at multiple points at the expected location of wind farm, and often lasts anywhere between 6 months and a year.
+</p>
+<p>
+All of the meteorogical towers at the project are shown on the map as yellow triangle markers. Clicking on a met marker on the map will populate the information box with information such as met reference name, the data file that contains the summarized met data, met tower coordinates, the height of the met tower above sea level, and the height of the primary sensor measurements.
+</p>
+<p>
+Additionally, when a met tower is selected, a rose chart is generated highlighting the summarized wind measurements for that met tower, aka a wind rose. This wind rose includes information summarized by wind direction, such as wind speed frequency, expected energy, and Weibull parameter distribution.
+</p>
 
 <h1>PPT</h1>
 <img src="screenshots/telescope-5.png" height="500px" width="auto">
