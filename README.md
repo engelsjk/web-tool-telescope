@@ -72,6 +72,35 @@ Additionally, when a met tower is selected, a rose chart is generated highlighti
 
 <h1>PPT</h1>
 <img src="screenshots/telescope-5.png" height="500px" width="auto">
+<p>
+Without going into too much detail, a power performance test (PPT) is a test that measures the expected power output of a wind turbine for any given wind speed input, also known as the turbine's power curve. A PPT is used to validate a power performance warranty which is a contractual obligation in most wind turbine purchase agreements. It basically proves to a buyer (or wind farm operator) that the turbines they purchased will satisfy the performance specifications they were sold, and which were used in project financing (performance over time equals money). 
+</p>
+<p>
+The PPT is performed according to an international standard, IEC 61400-12-1. This standard specifies certain requirements for the following:
+<ul>
+<li>How to setup the test campaign</li>
+<li>Where to put a met tower</li>
+<li>How far away a met tower can be from a turbine</li>
+<li>How to measure the wind speed</li>
+<li>How to measure the turbine output power</li>
+<li>Methods for calculating the results</li>
+<li>And so many more specifications</li>
+</p>
+<p>
+The PPT page provides a unique functionality in wind farm analysis tools, and was the main motivation in the development of Telescope in general. It allows the user to dynamically and interactively design a PPT, including selection of nominated turbines for testing and location of the PPT met tower, all according to the IEC 61400-12-1 requirements.  
+</p>
+<p>
+In this page, the user would visually scan the project layout and identify potential test turbines based on certain criteria and their professional experience. Zooming in on these turbines, the user can then click on the turbine markers to show different colored rings around each turbine. These rings highlight certain distances that are useful in PPT setup, known as D's, where a D is the selected turbine's rotor diameter. Three rings are shown, 2D (red), 2.5D (green) and 4D (red), which represent the minimum distance between the test turbine and a met tower, the recommend distance, and the maximum distance , respectively. By highlighting these rings, the user can identify areas which they should locate a met tower for PPT testing. If multiple turbines are highlighted, the user can find locations where a single met tower could be used to test multiple turbines.
+</p>
+<p>
+After one or more turbines have been highlighted, the user can drag and drop the blue triangle marker from the information box on the right onto the map on the left. They can dynamically drag and drop this met marker around the map, trying out different possible locations for the met tower. Each time the marker is relocated on the map, valid measurement sectors are recalculated dynamically and can be highlighted on the map by click on the turbine markers again, shown as transparent yellow arc sectors. These valid measurement sectors are the direction from which wind measurements during the test will be allowed, representing uninterrupted, freestream wind. These sectors are calculated according to the IEC 61400-12-1 and involve fairly complex trigonometry, all calculated in the browser in real-time. 
+</p>
+<p>
+As the user dynamically adjusts the PPT met tower location, a table update to show the allowable PPT test turbines and information about the relationship between the met tower and the test turbine, such as distance between them, in meters and rotor diameters, the bearing angle between them, and the valid measurement sectors. The valid measurement sectors can also be manually edited in the table, to restrict further as needed, and these edits will be reflected in an update to the yellow sectors in the map. 
+</p>
+<p>
+All of the functionality on this page, such as the drag and drop marker, the rings, and the arc sectors were implemented using a combination of Leaflet and D3 functions, all fed by the results of complex geospatial calculations performed in Javascript. 
+</p>
 
 <h1>Terrain</h1>
 <img src="screenshots/telescope-6.png" height="500px" width="auto">
