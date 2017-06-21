@@ -26,14 +26,36 @@ This write-up covers the five main components of Telescope: Project, Turbines, M
 <p>
 Telescope was a single-page application with a primary map and a secondary information display area. The front-end was built primarily using HTML/CSS, Javascript, jQuery, underscore, D3 and Leaflet. The back-end was built on a relatively simple structure of Python scripts called via CGI, all running on a Windows IIS web server. Telescope (and other web tools) was hosted on a virtual machine set up by the company's internal IT department but largely configured, operated and monitored by myself.
 </p>
-On web tool loading, a sequence of Python scripts were called to query data from a central application server operated by a a team of internal developers in Europe. 
+On web tool loading, a sequence of Python scripts were called to query data from a central application server operated by a team of internal developers in Europe. This initial loading query was used to populate a set of select boxes with lists of wind farm projects and the countries and regions they reside in. After this is done, the loading screen (top image) disappears and the main page (map, select boxes, blank information box, etc) appears.
 <p>
+<p>
+The user can then select regions or countries, and the map will zoom in to the respective area and show markers on the map for each wind farm project location. Once the user selects a specific project, the project information appears.
+<p/>
 
 <h1>Project</h1>
 <img src="screenshots/telescope-2.png" height="500px" width="auto">
+<p>
+The Project information page highlights information about the layout of a project. Each project is version controlled by the client software that is used to create the project, updated by the various project developers who work on the project. Each version also includes a number of different layouts that the project developer has created in the client software, to try out different combinations of turbine types, locations, wind farm control features, etc. The user can select through the different project versions and layouts, and the information associated with these specific layouts is then presented on the page.
+</p>
+<p>
+This information includes the following:
+<ul>
+<li>Map markers for each turbine location, both new turbines (green) and older turbines (red).</li>
+<li>Project coordinates.</li>
+<li>Select boxes of project versions and layouts.</li>
+<li>A button to export the selected project version/layout to a Google Earth KML file, downloaded in the browser.</li>
+<li>Details specific to the layout, such as number of turbines, measured wind conditions, expected production output, etc.</li>
+<li>Contact information for the project developer, including a photo and hotlinks for emails with pre-populated subject lines and for instant messenging.</li>
+</ul>
+</p>
+<p>
+When a specific project version and layout has been selected, the user can then select through the navigation tabs to use different components of Telescope, including the Turbine tab.
+</p>
 
 <h1>Turbines</h1>
 <img src="screenshots/telescope-3.png" height="500px" width="auto">
+<p>
+</p>
 
 <h1>Met</h1>
 <img src="screenshots/telescope-4.png" height="500px" width="auto">
