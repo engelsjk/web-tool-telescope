@@ -10,7 +10,7 @@ Telescope was a web-tool used to access and analyze data related to the developm
 Telescope was an internal web-tool I developed in the wind industry a couple of years ago and is probably still the most complex technical web development project I've worked on to date. It was the culmination of my earliest experimentation with web development, and the most complex in a series of web tools I developed to support techanical support and sales at an international wind turbine manufacturing company. 
 </p>
 
-<h1>Motiviation</h1>
+<h1>Motivation</h1>
 <p>
 The primary motivation for building this tool was to provide (1) increased knowledge sharing of technical data across multiple groups around the world and (2) an efficienct process for a technical analysis that had previously been done manually. This tool relied upon another internally developed, proprietary desktop client program that was used by analytics teams globally to track and analyze wind farm layout information. Any information that was entered and/or processed by the desktop client program was stored in a centralized database allowing for other users around the globe (with the same client program) to access the information and work seamlessly across projects. 
 </p>
@@ -104,5 +104,13 @@ All of the functionality on this page, such as the drag and drop marker, the rin
 
 <h1>Terrain</h1>
 <img src="screenshots/telescope-6.png" height="500px" width="auto">
-
+<p>
+A crucial part of the PPT process involves identifying whether the test setup requires a "site calibration" test. The site calibration concept is detailed in the IEC 61400-12-1 process. Generally speaking, it's a test to determine the geographic complexity of the terrain in the immediate area of the turbines being tested, and if that terrain might have an impact on the wind flow between the measurement mast and the test turbine(s). If the terrain is considered to be simple, no additional actions are needed in the testing process. If the terrain is considered to be complex, then a separate measurement campaign would need to be conducted, prior to the power performance test, to develop a set of wind speed adjustment factors that would then be used in the power performance test to adjust the wind speed data from the measurement mast. 
+</p>
+<p>
+This Terrain page provides the tools to do the site calibration terrain complexity analysis, according to the IEC 61400-12-1 specifications. It uses data from an internal database of ASTER terrain data, a publically available Digital Elevation Model (DEM) provided under a USA-Japan colloboration. This data set had been downloaded in full to an internal database and exposed via an internal web API that could partition data responses based on requested coordinates. 
+ </p>
+ <p>
+Once the measurement sectors have been finalized (from the previous PPT page), the user would then select the Terrain tab and proceed to load the ASTER data. This process involves a Python backend call to an internal web API which serves up a large set of terrain data from the internal ASTER database. This terrain data is essentially just a set of XY coordinates with corresponding Z axis elevation heights. This terrain data was then partitioned by each valid measurement sector, and a best fit plane calculation was performed in Javascript (via singular value decomposition) on each partitioned set of terrain data. Metrics of this best fit plane were calculated and compared to thresholds according to the IEC specifications, and pass/fail were then calculated on each metric to determine whether the overall terrain in the area of the PPT could be considered "simple" or "complex". The results of this analysis and a final pass/fail indicator were then present to the user in a table of results. 
+ </p>
 
