@@ -109,8 +109,12 @@ A crucial part of the PPT process involves identifying whether the test setup re
 </p>
 <p>
 This Terrain page provides the tools to do the site calibration terrain complexity analysis, according to the IEC 61400-12-1 specifications. It uses data from an internal database of ASTER terrain data, a publically available Digital Elevation Model (DEM) provided under a USA-Japan colloboration. This data set had been downloaded in full to an internal database and exposed via an internal web API that could partition data responses based on requested coordinates. 
- </p>
- <p>
+</p>
+<p>
 Once the measurement sectors have been finalized (from the previous PPT page), the user would then select the Terrain tab and proceed to load the ASTER data. This process involves a Python backend call to an internal web API which serves up a large set of terrain data from the internal ASTER database. This terrain data is essentially just a set of XY coordinates with corresponding Z axis elevation heights. This terrain data was then partitioned by each valid measurement sector, and a best fit plane calculation was performed in Javascript (via singular value decomposition) on each partitioned set of terrain data. Metrics of this best fit plane were calculated and compared to thresholds according to the IEC specifications, and pass/fail were then calculated on each metric to determine whether the overall terrain in the area of the PPT could be considered "simple" or "complex". The results of this analysis and a final pass/fail indicator were then present to the user in a table of results. 
- </p>
+</p>
 
+<h1>Summary</h1>
+<p>
+The Telescope tool was a personal and professional highlight of my career at this company and is still being used, developed and maintained to this day by former colleagues. It was built single-handedly from scratch and involved complex development in HTML/CSS, Javascript, Python, and D3. It also required a great deal of learning and understanding in object-oriented design, web API's, and client-server interactions, not to mention a deep-dive in complex GIS/terrain analysis required by an international electromechanical standard. It would not have been possible without the time and efforts of many former colleagues providing insight into existing database architecture and web API's, for which I am very grateful. Additionally, it would not have been possible without the encouragement and leeway provided by my former manager, who saw the power of the vision in this and many other ideas. 
+</p>
